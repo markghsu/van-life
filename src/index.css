@@ -1,34 +1,36 @@
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-
   font-family: var(--sans);
+  background: #FFF7ED;
 }
 
-/* #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
+#root {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
-} */
+}
 
 p {
   margin: 0;
 }
 
 header {
-  background: #CCC;
   text-align: center;
+  width: 100%;
   a {
     text-decoration: none;
     color: inherit;
   }
+}
+
+main {
+  flex-grow: 1;
+  width: 100%;
 }
 
 nav {
@@ -39,12 +41,29 @@ nav {
   }
 }
 
-@media (min-width: 768px) {
+.button {
+  display: block;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin: 0.5em 0 0;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --max-width: 1080px;
+  }
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
+    padding: 2em;
+    max-width: var(--max-width);
+    margin: 0 auto;
   }
   nav {
     > ul {
@@ -55,5 +74,75 @@ nav {
       }
     }
   }
+  main {
+    margin: 0 auto;
+    max-width: var(--max-width);
+  }
+}
+
+main section {
+  padding: 1em;
+}
+
+main h1 {
+  margin: 0.5em 0 1em;
+}
+
+main p {
+  margin-bottom: 1.5em;
+}
+
+footer {
+  color: #AAAAAA;
+  background: #252525;
+  padding: 1em;
+}
+
+/** HOME **/
+.hero {
+    padding: 1em;
+    color: #FFF;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://www.jitbit.com/uploads/photo-1542273917363-3b1817f69a2d.jpg");
+    background-size: cover;
+}
+
+.hero h1 {
+    margin: 1em 0 0.25em;
+    font-size: 2.25rem;
+}
+
+.hero p {
+    margin-bottom: 2em;
+}
+
+.hero .button {
+    color: #FFF;
+    background: #FF8C38;
+    width: 100%;
+    max-width: 30em;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+/* ABOUT */
+.main-img {
+  width: 100%;
+  max-height: 10em;
+  object-fit: cover;
+}
+
+.cta {
+  background: #FFCC8D;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2em;
+  border-radius: 5px;
+  font-size: 1.25rem;
+}
+
+.cta .button {
+  background: #000;
+  color: #FFF;
 }
 

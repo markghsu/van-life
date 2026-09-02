@@ -4,6 +4,9 @@ import './index.css'
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 import Layout from "./components/Layout"
+import Home from "./routes/Home"
+import About from "./routes/About"
+import Vans from "./routes/Vans"
 
 const router = createBrowserRouter([
   {
@@ -11,24 +14,20 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [{
         index: true,
-        element: <h1>Hello</h1>,
+        element: <Home />,
       },
       {
         path: "vans",
-        element: <h1>Vans</h1>,
+        element: <Vans />,
       },
       {
         path: "host",
-        element: <h1>Host</h1>,
+        element: <h2>Host</h2>
       },
       {
         path: "about",
-        element: <h1>About</h1>,
-      },
-      {
-        path: "login",
-        element: <h1>About</h1>,
-      },
+        element: <About />,
+      }
     ]
   },
 ])
