@@ -1,3 +1,4 @@
+import mirageServer from'./server' // MIRAGE JS STUB
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -8,6 +9,7 @@ import Home from "./routes/Home"
 import About from "./routes/About"
 import Vans from "./routes/Vans"
 
+mirageServer()
 const router = createBrowserRouter([
   {
     path: "/",
