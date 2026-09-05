@@ -24,11 +24,10 @@ export default function Vans() {
                 <ul className="vans-list">{
                     vans.map((van) => (
                         <li className="van-item" key={van.id}>
-                            <h3 className="van-name">{van.name}</h3>
                             <img className="van-image" alt={van.name} src={van.imageUrl} />
-                            <p className="van-description">{van.description}</p>
-                            <span>Price: ${van.price}</span>
-                            <div className="pill">{van.type}</div>
+                            <h3 className="van-name">{van.name}</h3>
+                            <p>Price: ${van.price}/day</p>
+                            <div className="pill" data-type={van.type}>{van.type}</div>
                         </li>
                 ))}
             </ul>
