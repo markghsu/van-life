@@ -17,6 +17,7 @@ export default function () {
 
     routes() {
       this.get("/api/vans", (schema) => schema.vans.all() )
+      this.get("/api/van/:id", (schema, request) => schema.vans.find(request.params.id) )
     },
   })
 }

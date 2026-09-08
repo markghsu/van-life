@@ -8,6 +8,7 @@ import Layout from "./components/Layout"
 import Home from "./routes/Home"
 import About from "./routes/About"
 import Vans from "./routes/Vans"
+import VanDetail from "./routes/VanDetail"
 
 mirageServer()
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "vans",
         element: <Vans />,
+      },
+      {
+        path: "vans/:id",
+        element: <VanDetail />,
       },
       {
         path: "host",
