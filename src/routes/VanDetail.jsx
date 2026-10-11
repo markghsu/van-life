@@ -21,18 +21,19 @@ export default function Van() {
         }
         getVanData()
     },[])
-    console.log(vanData)
+
     return (<main className="van-detail">
-        { vanData ?
-            <>
-                <h1 className="van-detail-name">{vanData.name}</h1>
-                <img className="van-image" alt={vanData.name} src={vanData.imageUrl} />
-                <p>Price: ${vanData.price}/day</p>
-                <p>{vanData.description}</p>
-                <div className="pill" data-type={vanData.type}>{vanData.type}</div>
-                <Link to="/vans">Back to all vans</Link>
-            </>
-        : <h1>Loading...</h1> }
+            { vanData ?
+                <>
+                    <h1 className="van-name">{vanData.name}</h1>
+                    <img className="van-image" alt={vanData.name} src={vanData.imageUrl} />
+                    <div className="pill van-type" data-type={vanData.type}>{vanData.type}</div>
+                    <p className="van-price"><strong>${vanData.price}</strong>/day</p>
+                    <p className="van-description">{vanData.description}</p>
+                    <button className="van-cta button">Rent this van</button>
+                </>
+            : <h1>Loading...</h1> }
+            <Link to="/vans" className="back-link">← Back to all vans</Link>
         </main>
     )
 }

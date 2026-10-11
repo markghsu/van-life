@@ -178,15 +178,67 @@ footer {
 
 .pill {
   background: #333;
-  color: #FFF;
-  padding: 0.625em 1em;
+  color: #FFEAD0;
+  padding: 0.5em 1em;
   border-radius: 5px;
   display: inline-block;
+  text-transform: capitalize;
+  &[data-type="simple"] {
+    background: #E17654;
+  }
+  &[data-type="rugged"] {
+    background: #115E59;
+  }
+  &[data-type="luxury"] {
+    background: #161616;
+  }
 }
 
 @media (min-width: 640px) {
   .vans-list {
 
   }
+}
 
+/*** VAN DETAIL ***/
+
+.van-detail {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1em;
+  .back-link {
+    order: 0;
+  }
+  .van-image {
+    order: 1;
+    width: 100%;
+  }
+  .van-type {
+    order: 2;
+  }
+  .van-name {
+    order: 3;
+    margin: 0;
+  }
+  .van-price {
+    order: 4;
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  .van-description {
+    order: 5;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .van-cta {
+    order: 6;
+    width: 100%;
+    background: #FF8C38;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 1.125rem;
+    padding: 1em 2em;
+  }
 }
