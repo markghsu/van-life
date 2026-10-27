@@ -12,7 +12,6 @@ export default function Van() {
                     throw new Error(`Response status: ${response.status}`);
                 }
                 const data = await response.json();
-                console.log(data.van)
                 setVanData(data?.van)
             }
             catch(err) {
