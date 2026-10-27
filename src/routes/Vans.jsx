@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
+import { clsx } from 'clsx'
 
 export default function Vans() {
     const [loading, setLoading] = useState(true)
@@ -31,6 +32,18 @@ export default function Vans() {
         }
         getVanData()
     },[])
+
+    function selectFilter(key, value) {
+        setSearchParams((prev) => {
+            const params = new URLSearchParams(prev)
+            if(value === null) {
+                params.delete(key)
+            } else {
+                params.set(key, value)
+            }
+            return params
+        })
+    }
     return (<main className="vans">
         <h1>Explore our Van Options</h1>
         {
@@ -39,8 +52,9 @@ export default function Vans() {
             vans && <>
                 <section className="van-filters">
                     {filters.map((f) => (
-                        <Link key={f.name} to={`?type=${f.name}`} className="pill" data-type={f.name}>{f.name}</Link>
+                        <button key={f.name} className={clsx({ pill: true,selected: typeFilter === f.name})} onClick={() => selectFilter("type",f.name)} data-type={f.name}>{f.name}</button>
                     ))}
+                    <button onClick={() => selectFilter("type",null)} className="clear-btn">clear all</button>
                 </section>
                 <ul className="vans-list">{
                         vans.filter((a) => (!typeFilter || a.type == typeFilter)).map((van) => (

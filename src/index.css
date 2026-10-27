@@ -178,7 +178,6 @@ footer {
   max-width: 230px;
   border-radius: 5px;
   border: 1px solid #333;
-  padding: 0.5em;
   background: #ecde61;
   &:hover {
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
@@ -186,6 +185,12 @@ footer {
   img {
     max-width: 100%;
     border-radius: 5px;
+  }
+  > a{
+    /* MAKE ENTIRE AREA CLICKABLE */
+    display: block;
+    height: 100%;
+    padding: 0.5em;
   }
 }
 
@@ -196,15 +201,44 @@ footer {
   border-radius: 5px;
   display: inline-block;
   text-transform: capitalize;
-  &[data-type="simple"] {
+  &:not(button)[data-type="simple"] {
     background: #E17654;
   }
-  &[data-type="rugged"] {
+  &:not(button)[data-type="rugged"] {
     background: #115E59;
   }
-  &[data-type="luxury"] {
+  &:not(button)[data-type="luxury"] {
     background: #161616;
   }
+}
+
+button.pill {
+  border: none;
+  cursor: pointer;
+  background: #FFEAD0;
+  color: #4D4D4D;
+  font-size: 1rem;
+  &.selected[data-type="simple"], &:hover[data-type="simple"] {
+    background: #E17654;
+    color: #FFEAD0;
+  }
+  &.selected[data-type="rugged"], &:hover[data-type="rugged"] {
+    background: #115E59;
+    color: #FFEAD0;
+  }
+  &.selected[data-type="luxury"], &:hover[data-type="luxury"] {
+    background: #161616;
+    color: #FFEAD0;
+  }
+}
+
+.clear-btn {
+  border: none;
+  background: none;
+  color: #4D4D4D;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 2em;
 }
 
 @media (min-width: 640px) {
