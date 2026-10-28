@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router';
+import { Link, useParams, useLocation } from 'react-router';
 
 export default function Van() {
-    const [vanData, setVanData] = useState(null);
-    const {id} = useParams();
+    const [vanData, setVanData] = useState(null)
+    const {id} = useParams()
+    const type = useLocation().state?.type
+    console.log(useLocation(), type)
     useEffect(() => {
         async function getVanData() {
             try {
@@ -32,7 +34,7 @@ export default function Van() {
                     <button className="van-cta button">Rent this van</button>
                 </>
             : <h1>Loading...</h1> }
-            <Link to="/vans" className="back-link">← Back to all vans</Link>
+            <Link to={"/vans" + (type?"?type="+type:"")} className="back-link">← Back to {type?type:"all"} vans</Link>
         </main>
     )
 }

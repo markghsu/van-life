@@ -257,6 +257,7 @@ button.pill {
   gap: 1em;
   .back-link {
     order: 0;
+    text-decoration: underline;
   }
   .van-image {
     order: 1;
