@@ -34,7 +34,7 @@ export default function Van() {
                     <button className="van-cta button">Rent this van</button>
                 </>
             : <h1>Loading...</h1> }
-            <Link to={"/vans" + (type?"?type="+type:"")} className="back-link">← Back to {type?type:"all"} vans</Link>
+            <Link to={".." + (type?"?type="+type:"")} relative="path" className="back-link">← Back to {type?type:"all"} vans</Link>
         </main>
     )
 }
