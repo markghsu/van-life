@@ -9,6 +9,12 @@ import Home from "./routes/Home"
 import About from "./routes/About"
 import Vans from "./routes/Vans"
 import VanDetail from "./routes/VanDetail"
+import HostLayout from "./components/HostLayout"
+import HostVans from "./routes/host/HostVans"
+import HostVanDetail from "./routes/host/HostVanDetail"
+import HostIncome from "./routes/host/HostIncome"
+import HostReviews from "./routes/host/HostReviews"
+import HostDashboard from "./routes/host/HostDashboard"
 
 mirageServer()
 const router = createBrowserRouter([
@@ -29,7 +35,28 @@ const router = createBrowserRouter([
       },
       {
         path: "host",
-        element: <h2>Host</h2>
+        element: <HostLayout />,
+        children: [{
+          index: true,
+          element: <HostDashboard />
+        },
+        {
+          path: "reviews",
+          element: <HostReviews />,
+        },
+        {
+          path: "income",
+          element: <HostIncome />,
+        },
+        {
+          path: "vans",
+          element: <HostVans />,
+        },
+        {
+          path: "vans/:id",
+          element: <HostVanDetail />,
+        },
+      ]
       },
       {
         path: "about",
